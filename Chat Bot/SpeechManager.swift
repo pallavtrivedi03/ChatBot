@@ -73,11 +73,6 @@ class SpeechManager
             if error != nil || isFinal {
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
-                
-                // self.request = nil
-                //self.recognitionTask = nil
-                
-                //self.microphoneButton.isEnabled = true
             }
         })
         
@@ -102,9 +97,9 @@ class SpeechManager
     {
         if audioEngine.isRunning
         {
-            audioEngine.inputNode.removeTap(onBus: 0)
             audioEngine.stop()
             request.endAudio()
+            audioEngine.inputNode.removeTap(onBus: 0)
         }
     }
     
